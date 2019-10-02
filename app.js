@@ -218,6 +218,11 @@ let UIController = (function(){
 
 
             nodeListForEach(fields, function(current, index){
+                if (percentages[index] > 0){
+                    current.textContent = percentages[index] + '%'
+                }else{
+                    current.textContent = '---'
+                }
 
             })
         },
@@ -261,7 +266,7 @@ let controller = (function(budgetCtrl, UICtrl){
         // read percentages from budget controller
         let percentages = budgetController.getPercentages()
         // update the UI
-        console.log(percentages)
+        UICtrl.displayPercentages(percentages)
     }
 
 
